@@ -7,12 +7,12 @@ from mesa.datacollection import DataCollector
 class CultureModel(mesa.Model):
     """
     Axelrod's culture dissemination model.
-    Agents interact with similar neighbors and become more similar over time.
+    Agents will interact with similar neighbors and become more similar over time.
     """
     
     def __init__(self, width=10, height=10, num_features=5, num_traits=10, seed=None):
         super().__init__(seed=seed)
-        # Define model parameters
+        # first define model parameters
         self.width = width
         self.height = height
         self.num_features = num_features

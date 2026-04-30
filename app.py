@@ -7,8 +7,7 @@ from mesa.visualization import (
 )
 from mesa.visualization.components import AgentPortrayalStyle
 
-
-# Define agent portrayal
+# Define agent color
 def agent_portrayal(agent):
     colors = [
         "red", "blue", "green", "orange", "purple", 
@@ -23,7 +22,6 @@ def agent_portrayal(agent):
         marker="s",
         size=85,
     )
-
 
 # Model parameters
 model_params = {
@@ -66,15 +64,12 @@ model_params = {
     },
 }
 
-
 # Create model
 culture_model = CultureModel()
-
 
 # Plots
 RegionsPlot = make_plot_component(["Cultural_Regions"])
 DiversityPlot = make_plot_component(["Average_Diversity"])
-
 
 # Create space
 SpaceGraph = make_space_component(agent_portrayal, draw_grid=True)

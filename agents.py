@@ -11,17 +11,13 @@ class CultureAgent(mesa.Agent):
     def __init__(self, model, num_features, num_traits):
         super().__init__(model)
         # Culture is a list of traits, one for each feature
-        # For example: [3, 7, 2, 9, 1] means feature 1 has trait 3, feature 2 has trait 7, etc.
+        # [3, 7, 2, 9, 1] means feature 1 has trait 3, feature 2 has trait 7...
         self.culture = [random.randrange(num_traits) for _ in range(num_features)]
     
     def step(self):
         """
         Rule is more similar neighbors are more likely to influence you.
-        
-        Process:
-        1. Pick a random neighbor
-        2. Calculate similarity
-        3. With probability = similarity, adopt one of their different traits
+        Process is pick a random neighbor, then calculate similarity. With probability = similarity, adopt one of their different traits
         """
         # Get neighbors (4 adjacent cells, no diagonals)
         neighbors = self.model.grid.get_neighbors(
